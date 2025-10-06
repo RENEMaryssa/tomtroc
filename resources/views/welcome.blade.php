@@ -41,7 +41,7 @@ $tomtrocDarkGreen = '#006D41';
         </div>
 
         <div class="flex-1 flex justify-center">
-            <img src="{{ asset('images/hero-tomtroc-books.jpg') }}" alt="Petite boutique de livres" class="max-w-full h-auto rounded-lg shadow-xl" style="max-height: 400px; object-fit: cover;">
+            <img src="{{ asset('images/hero-tomtroc-books.png') }}" alt="Petite boutique de livres" class="max-w-full h-auto rounded-lg shadow-xl" style="max-height: 400px; object-fit: cover;">
         </div>
     </div>
     </section>

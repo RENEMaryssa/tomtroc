@@ -2,7 +2,7 @@
     <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         <div class="flex items-center gap-12">
             <a href="{{ url('/') }}" class="flex items-center text-2xl font-bold text-[#2ECC71]">
-                <img src="{{ asset('resources/images/logo-tomtroc.png') }}" alt="Logo TomTroc" class="h-8 w-auto">
+                <img src="{{ asset('images/logo-tomtroc.png') }}" alt="Logo TomTroc" class="h-8 w-auto">
             </a>
 
             <nav class="hidden sm:flex items-center gap-6 text-gray-700">
