@@ -1,3 +1,63 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.font-playfair { font-family: 'Playfair Display', serif; }
+.font-inter { font-family: 'Inter', sans-serif; }
+
+/* Boutons - Amélioré pour cohérence */
+.btn-primary-tomtroc {
+    @apply inline-block text-white px-8 py-3 rounded-md font-semibold shadow-lg transition hover:opacity-90;
+    background-color: theme('colors.tomtroc.green'); /* Utilise la config Tailwind */
+}
+.btn-outline-tomtroc {
+    @apply inline-block px-8 py-3 rounded-md font-semibold transition duration-300 border border-solid border-2;
+    border-color: theme('colors.tomtroc.green');
+    color: theme('colors.tomtroc.green');
+    background-color: transparent;
+}
+.btn-outline-tomtroc:hover {
+    background-color: theme('colors.tomtroc.dark-green');
+    color: white;
+    border-color: theme('colors.tomtroc.dark-green');
+}
+
+/* Cards livres - Ajout responsivité */
+.book-card {
+    @apply flex flex-col justify-start items-start w-full sm:w-[200px] hover:shadow-lg transition duration-300;
+}
+.book-image {
+    @apply w-full h-[200px] object-cover rounded-md shadow-md mb-2;
+}
+.book-text {
+    @apply w-full h-[124px] text-left;
+}
+
+/* Cards "Comment ça marche" - Amélioré pour mobile */
+.how-it-works-card {
+    @apply flex-1 min-w-[180px] max-w-xs h-[139px] sm:h-[139px] rounded-xl flex items-center justify-center text-center p-4 transition hover:shadow-lg bg-white border border-gray-200 shadow-md;
+}
+.how-it-works-card-text {
+    @apply text-gray-800 text-sm font-normal leading-relaxed mx-auto w-full max-w-[180px];
+}
+
+/* HERO image - Amélioré pour mobile */
+.hero-image {
+    @apply max-w-full h-auto rounded-lg shadow-xl object-cover w-full lg:w-[404px] lg:h-[539px];
+}
+
+/* Nouveaux : Styles pour textes hero et sections */
+.hero-subtitle {
+    @apply font-inter font-light text-base leading-relaxed text-gray-700 mb-8 max-w-md mx-auto lg:mx-0;
+}
+.section-title {
+    @apply font-playfair font-normal text-3xl lg:text-4xl text-gray-800 mb-12 text-center;
+}
+.how-title {
+    @apply font-playfair font-normal text-2xl text-gray-800 mx-auto mb-4 leading-tight;
+    width: 321px; /* Gardé pour fidélité au design */
+}
+.how-subtitle {
+    @apply text-gray-600 text-base leading-relaxed text-center mx-auto mb-8;
+    width: 397px; /* Gardé pour fidélité */
+}

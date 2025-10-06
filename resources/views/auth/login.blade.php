@@ -1,5 +1,7 @@
+@include('layouts.header')
 <x-guest-layout>
     <x-auth-session-status class="mb-4" :status="session('status')" />
+    
 
     <h1 class="text-3xl font-light text-gray-800 mb-8 w-full text-center">Connexion</h1>
 

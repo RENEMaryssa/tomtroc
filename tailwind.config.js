@@ -11,11 +11,28 @@ export default {
 
     theme: {
         extend: {
-            fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-            },
+    fontFamily: {
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        playfair: ['Playfair Display', 'serif'],
+    },
+    colors: {
+        tomtroc: {
+            green: '#2ECC71',
+            cream: '#F7F6F3',
+            'dark-green': '#006D41',
         },
     },
+    spacing: {
+        200: '200px', // pour cartes livres
+        215: '215px', // cartes "Comment ça marche"
+    },
+}
 
-    plugins: [forms],
+    },
+
+    plugins: [
+        forms,
+        // OPTIONNEL : Si vous souhaitez définir des composants directement dans le config,
+        // vous pouvez le faire ici, mais la méthode de l'étape précédente (dans app.css) est déjà bonne.
+    ],
 };

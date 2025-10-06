@@ -22,49 +22,95 @@ $tomtrocDarkGreen = '#006D41';
     @include('layouts.header')
 
     <section class="w-full py-20" style="background-color: {{ $tomtrocCream }};">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-10">
-        <div class="flex-1 text-center lg:text-left">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-10">
+            <div class="flex-1 text-center lg:text-left">
 
-            <h1 class="text-4xl lg:text-5xl font-serif font-normal leading-tight mb-6">
-                Rejoignez nos <br> <span class="font-bold" style="color: {{ $tomtrocGreen }};">lecteurs passionnés</span>
-            </h1>
+                <h1 class="text-4xl lg:text-5xl font-serif font-normal leading-tight mb-6">
+                    Rejoignez nos <br> <span class="font-bold" style="color: {{ $tomtrocGreen }};">lecteurs passionnés</span>
+                </h1>
 
-            <p class="text-lg text-gray-700 max-w-md mx-auto lg:mx-0 mb-6">
-                Donnez une nouvelle vie à vos livres en les échangeant avec d'autres lecteurs. Rejoignez une communauté active et solidaire pour partager des connaissances et d'histoires à travers les pages.
-            </p>
+                <p class="max-w-md mx-auto lg:mx-0"
+                    style="
+                /* Styles demandés */
+                font-family: 'Inter', sans-serif;
+                font-weight: 300; /* Light */
+                font-size: 16px; 
+                line-height: 1.5; /* Rétablit un espacement lisible pour le web, car line-height: 100% est trop serré */
+                color: #4B5563; /* Couleur Tailwind text-gray-700 ajustée */
+                margin-bottom: 2rem; /* Espace après le paragraphe avant le bouton (ajusté de 6 à 8) */
+                ">
+                    Donnez une nouvelle vie à vos livres en les échangeant avec d'autres lecteurs. Rejoignez une communauté active et solidaire pour partager des connaissances et d'histoires à travers les pages.
+                </p>
 
-            <a href="{{ route('register') }}"
-                class="inline-block text-white px-8 py-3 rounded-md font-semibold transition shadow-lg mt-12 hover:opacity-90"
-                style="background-color: {{ $tomtrocGreen }};">
-                Découvrir
-            </a>
+                <a href="{{ route('register') }}"
+                    class="inline-block text-white px-8 py-3 rounded-md font-semibold transition shadow-lg mt-12 hover:opacity-90"
+                    style="background-color: {{ $tomtrocGreen }};">
+                    Découvrir
+                </a>
+            </div>
+
+            <div class="flex-1 flex justify-center lg:justify-end">
+                <img src="{{ asset('images/hero-tomtroc-books.png') }}"
+                    alt="Petite boutique de livres"
+                    class="max-w-full h-auto rounded-lg shadow-xl"
+                    style="
+                    /* Dimensions exactes du design */
+                    width: 404px; 
+                    height: 539px; 
+                    object-fit: cover;
+                    /* Retrait du max-height pour que height: 539px soit appliqué */
+                 ">
+            </div>
         </div>
-
-        <div class="flex-1 flex justify-center">
-            <img src="{{ asset('images/hero-tomtroc-books.png') }}" alt="Petite boutique de livres" class="max-w-full h-auto rounded-lg shadow-xl" style="max-height: 400px; object-fit: cover;">
-        </div>
-    </div>
     </section>
 
     <section class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-normal mb-12 text-gray-800">Les derniers livres ajoutés</h2>
+    <div class="max-w-6xl mx-auto px-4 text-center">
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
+        <h2 class="text-3xl font-normal mb-12 text-gray-800" style="font-family: 'Playfair Display', serif;">
+            Les derniers livres ajoutés
+        </h2>
+
+        <div class="flex justify-center">
+            <div class="flex flex-wrap justify-center gap-8 mb-10">
                 @for ($i = 1; $i <= 4; $i++)
-                    <div class="text-left space-y-2">
-                    <img src="{{ asset('images/book-cover-' . $i . '.png') }}" alt="Couverture de livre" class="w-full h-auto rounded-md mb-2 shadow-md hover:shadow-xl transition duration-300">
-                    <p class="font-semibold text-gray-800">Titre Livre {{ $i }}</p>
-                    <p class="text-sm text-gray-500">Auteur Nom</p>
-            </div>
-            @endfor
-        </div>
+                    <div class="text-left w-[200px] hover:shadow-lg transition duration-300">
 
-        <a href="{{ route('books.index') }}" class="inline-block px-8 py-3 rounded-md font-semibold transition hover:bg-gray-50" style="border: 1px solid {{ $tomtrocGreen }}; color: {{ $tomtrocGreen }}; background-color: transparent;">
-            Voir tous les livres
-        </a>
+                        <img src="{{ asset('images/book-cover-' . $i . '.png') }}"
+                            alt="Couverture de livre"
+                            class="w-full h-auto rounded-md mb-2 shadow-md"
+                            style="
+                                width: 200px;
+                                height: 200px;
+                                object-fit: cover;
+                                transform: rotate(0deg);
+                                opacity: 1;
+                                ">
+
+                        <!-- Bloc texte avec dimensions fixées -->
+                        <div style="
+                            width: 200px;
+                            height: 124px;
+                            transform: rotate(0deg);
+                            opacity: 1;
+                        ">
+                            <p class="font-semibold text-gray-800 text-sm">Titre Livre {{ $i }}</p>
+                            <p class="text-xs text-gray-500">Vendu par Auteur Nom</p>
+                        </div>
+                    </div>
+                @endfor
+            </div>
         </div>
-    </section>
+            
+        </div>
+        <a href="{{ route('books.index') }}"
+    class="inline-block text-white px-8 py-3 rounded-md font-semibold transition shadow-lg mt-12 hover:opacity-90"
+    style="background-color: {{ $tomtrocGreen }}; display: block; margin: 0 auto; width: fit-content;">
+    Voir tous les livres
+</a>
+
+    </div>
+</section>
 
     <section class="py-20" style="background-color: {{ $tomtrocCream }};">
         <div class="max-w-6xl mx-auto px-4 text-center">
@@ -131,16 +177,7 @@ $tomtrocDarkGreen = '#006D41';
         </div>
     </section>
 
-
-    <footer class="w-full bg-white border-t border-gray-100 mt-auto">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between text-xs text-gray-500">
-            <p>&copy; 2025 TomTroc</p>
-            <div class="flex items-center gap-4">
-                <a href="#" class="hover:text-gray-700">Politique de confidentialité</a>
-                <a href="#" class="hover:text-gray-700">Mentions légales</a>
-            </div>
-        </div>
-    </footer>
+    @include('layouts.footer')
 
 </body>
 
